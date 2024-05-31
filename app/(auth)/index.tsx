@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
+import SafeView from '~/components/SafeView'
+
 const OTPLogin = () => {
     return (
-        <View>
-            <Text>otp-login</Text>
-        </View>
+        <SafeView>
+            <View>
+                <Text>Welcome on the OTP page!</Text>
+            </View>
+        </SafeView>
     )
 }
 

@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Dashboard = () => {
+import SafeView from '~/components/SafeView'
+
+export default function Dashboard() {
     return (
-        <View>
-            <Text>index</Text>
-        </View>
+        <SafeView>
+            <View>
+                <Text>Hello welcome on the Dashboard page!</Text>
+            </View>
+        </SafeView>
     )
 }
 
-export default Dashboard
+
 
 const styles = StyleSheet.create({})

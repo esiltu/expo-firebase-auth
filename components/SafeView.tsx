@@ -13,6 +13,7 @@ const SafeView: React.FC<SafeViewProps> = ({ children }) => {
     )
 }
 
+export default SafeView
 
 const styles = StyleSheet.create({
     SafeView: {
