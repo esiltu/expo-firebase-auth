@@ -35,14 +35,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     }, [isAuthenticated, router]);
 
-    if (isAuthenticated === null) {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <ActivityIndicator size="large" />
-            </View>
-        );
-    }
-
     return (
         <AuthContext.Provider value={{ isAuthenticated }}>
             {children}

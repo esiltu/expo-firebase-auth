@@ -5,6 +5,7 @@ import { config } from '@gluestack-ui/config';
 import { AuthProvider, useAuth } from '~/context/AuthProvider';
 import { Slot } from 'expo-router';
 import { ActivityIndicator, View } from 'react-native';
+import Toast from 'react-native-toast-message';
 
 export default function RootLayout() {
   return (
@@ -13,6 +14,7 @@ export default function RootLayout() {
         <AuthProvider>
           <AuthLoader />
         </AuthProvider>
+        <Toast />
       </GestureHandlerRootView>
     </GluestackUIProvider>
   );

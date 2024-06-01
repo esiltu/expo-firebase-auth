@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
+import { useToast, Toast, VStack, ToastTitle, ToastDescription } from '@gluestack-ui/themed';
 
 interface AuthFlowState {
     email: string,
@@ -13,6 +14,7 @@ interface AuthFlowState {
 }
 
 const AuthSignIn = () => {
+    const toast = useToast();
 
     const handleSignUp = async (values: AuthFlowState) => {
         try {
@@ -21,6 +23,22 @@ const AuthSignIn = () => {
 
             // Store user info
             await storeUserInfo(userCredential.user);
+
+            // Display toast message
+            toast.show({
+                placement: "top",
+                render: ({ id }) => {
+                    const toastId = "toast-" + id;
+                    return (
+                        <View style={styles.toastContainer}>
+                            <Text style={styles.toastTitle}>Login Succesvol</Text>
+                            <Text style={styles.toastDescription}>
+                                Je bent successvol ingelogd.
+                            </Text>
+                        </View>
+                    );
+                },
+            });
 
             router.navigate('(dashboard)');
 
@@ -142,5 +160,25 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
+    },
+    toastContainer: {
+        backgroundColor: '#4CAF50', // Green color for success
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        marginHorizontal: 20,
+        marginTop: 10,
+        borderColor: '#4CAF50',
+        borderWidth: 1,
+    },
+    toastTitle: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    toastDescription: {
+        color: '#fff',
+        fontSize: 16,
+        marginTop: 5,
     },
 });

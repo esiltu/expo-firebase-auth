@@ -4,7 +4,6 @@ import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
-import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
 
 
