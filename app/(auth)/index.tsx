@@ -5,9 +5,14 @@ import { auth } from 'utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
 
+interface AuthFlowState {
+    email: string,
+    password: string
+}
+
 
 const AuthFlow = () => {
-    const handleSignUp = async (values: { email: string; password: string }) => {
+    const handleSignUp = async (values: AuthFlowState) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed up successfully:', userCredential.user);
