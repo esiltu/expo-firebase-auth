@@ -4,7 +4,9 @@ import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
-import { setItem, getItem } from '~/store/storage';
+import { setItem } from '~/store/storage';
+import { useAuth } from '~/context/AuthProvider';
+
 
 interface AuthFlowState {
     email: string,
@@ -12,6 +14,7 @@ interface AuthFlowState {
 }
 
 const AuthFlow = () => {
+
     const handleSignUp = async (values: AuthFlowState) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
@@ -19,6 +22,7 @@ const AuthFlow = () => {
 
             // Store user info
             await storeUserInfo(userCredential.user);
+
         } catch (error) {
             console.error('Error signing up:', error);
         }
