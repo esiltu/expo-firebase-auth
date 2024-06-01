@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { getItem } from 'store/storage'
+import { Badge, BadgeText, Button, ButtonText, ButtonIcon, MailIcon } from '@gluestack-ui/themed'
 
 
 import SafeView from '~/components/SafeView'
@@ -51,7 +52,13 @@ const Settings: React.FC = () => {
                     <View style={styles.userInfoContainer}>
                         <Text>User ID: {userInfo.userId}</Text>
                         <Text>Email: {userInfo.email}</Text>
-                        <Text>Email Verified: {userInfo.isVerified ? 'Yes' : 'No'}</Text>
+                        <Badge size="lg" variant="solid" borderRadius="$none" action="info" right={3}>
+                            <BadgeText right={5}>Email Verified:  {userInfo.isVerified ? 'Yes' : 'No'} </BadgeText>
+                        </Badge>
+                        <Button size="lg" variant="solid" action="positive" isDisabled={false} isFocusVisible={false} top={5} onPress={() => console.log("Pressed on me")}>
+                            <ButtonText textAlign='left' right={65}>Verify email right now</ButtonText>
+                            <ButtonIcon as={MailIcon} right={55} />
+                        </Button>
                     </View>
                 ) : (
                     <Text>No user information found.</Text>

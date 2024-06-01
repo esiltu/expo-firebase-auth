@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useAuth, AuthProvider } from '~/context/AuthProvider';
 import { GluestackUIProvider } from '@gluestack-ui/themed'
+import { config } from '@gluestack-ui/config';
 
 
 export default function RootLayout() {
@@ -10,7 +11,7 @@ export default function RootLayout() {
   const { isAuthenticated } = useAuth()
 
   return (
-    <GluestackUIProvider>
+    <GluestackUIProvider config={config}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <AuthProvider>
           <Stack>
