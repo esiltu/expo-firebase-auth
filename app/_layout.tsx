@@ -1,6 +1,8 @@
 import { Stack } from 'expo-router';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useAuth, AuthProvider } from '~/context/AuthProvider';
+import { GluestackUIProvider } from '@gluestack-ui/themed'
+
 
 export default function RootLayout() {
 
@@ -8,13 +10,15 @@ export default function RootLayout() {
   const { isAuthenticated } = useAuth()
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <AuthProvider>
-        <Stack>
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} redirect={!isAuthenticated} />
-          <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
-        </Stack>
-      </AuthProvider>
-    </GestureHandlerRootView>
+    <GluestackUIProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <AuthProvider>
+          <Stack>
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} redirect={!isAuthenticated} />
+            <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
+          </Stack>
+        </AuthProvider>
+      </GestureHandlerRootView>
+    </GluestackUIProvider>
   );
 }
