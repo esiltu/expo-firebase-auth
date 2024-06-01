@@ -4,7 +4,7 @@ import { getItem } from 'store/storage';
 import { useRouter } from 'expo-router';
 
 // Create Auth Context
-const AuthContext = createContext<{ isAuthenticated: boolean }>({ isAuthenticated: false });
+const AuthContext = createContext<{ isAuthenticated: boolean | null }>({ isAuthenticated: null });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -26,12 +26,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, []);
 
     useEffect(() => {
-        if (isAuthenticated === true) {
-            router.replace('(dashboard)');
-        } else if (isAuthenticated === false) {
-            router.replace('(auth)');
+        if (isAuthenticated !== null) {
+            if (isAuthenticated) {
+                router.replace('(dashboard)');
+            } else {
+                router.replace('(auth)');
+            }
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, router]);
 
     if (isAuthenticated === null) {
         return (

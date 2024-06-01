@@ -7,7 +7,7 @@ const Diensten = () => {
     return (
         <SafeView>
             <View>
-                <Text>diensten</Text>
+                <Text>fdfdsfds</Text>
             </View>
         </SafeView>
     )

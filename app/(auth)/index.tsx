@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Button, SafeAreaView } from "react-native";
 import { Link } from "expo-router";
 
-export default function AuthIndex() {
+const AuthIndex = () => {
     return (
         <SafeAreaView>
             <View>
@@ -17,3 +17,5 @@ export default function AuthIndex() {
         </SafeAreaView>
     );
 }
+
+export default AuthIndex
