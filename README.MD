@@ -31,7 +31,7 @@ To set up the project locally, you will need to install the necessary dependenci
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/esiltu/VacatureShift-V1
     cd your-repo-name
     ```
 
