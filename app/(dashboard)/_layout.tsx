@@ -1,4 +1,4 @@
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 
@@ -9,10 +9,11 @@ const DrawerLayout = () => (
         <Drawer.Screen
             name="(tabs)"
             options={{
-                headerTitle: 'Tabs',
-                drawerLabel: 'Tabs',
+                // headerTitle: 'Tabs',
+                headerTitle: "",
+                drawerLabel: 'Home',
                 drawerIcon: ({ size, color }) => (
-                    <MaterialIcons name="border-bottom" size={size} color={color} />
+                    <Ionicons name="home-outline" size={size} color={color} />
                 ),
                 headerRight: () => (
                     <Link href="/modal" asChild>

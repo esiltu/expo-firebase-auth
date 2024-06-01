@@ -23,8 +23,6 @@ const Settings: React.FC = () => {
                 const email = await getItem('@user_email')
                 const isVerified = await getItem('@email_verified')
 
-                console.log('User Info:', { userId, email, isVerified })
-
                 if (userId && email && isVerified) {
                     setUserInfo({
                         userId,

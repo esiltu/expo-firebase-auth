@@ -18,5 +18,6 @@ export default SafeView
 const styles = StyleSheet.create({
     SafeView: {
         flex: 1,
+        backgroundColor: "white",
     }
 })

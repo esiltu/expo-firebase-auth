@@ -21,7 +21,7 @@ This app is a platform for connecting IT professionals in the Netherlands, allow
 
 - **Firebase**: For authentication flow
 - **Expo Router**: For navigation logic ([Expo Router Documentation](https://docs.expo.dev/router/introduction/))
-- **Pure CSS**
+- **Gluestack-UI**: For UI components... -> [Gluestack-UI](https://gluestack.io/)
 - **Custom Fonts**: From Google 😎
 - **TypeScript with React Native**: Created with [Create Expo Stack](https://createexpostack.com/)
 
