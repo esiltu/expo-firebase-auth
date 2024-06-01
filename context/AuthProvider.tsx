@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { getItem, storage } from 'store/storage';
+import { getItem } from 'store/storage';
 
 
 // Create Auth Context
