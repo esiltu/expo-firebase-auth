@@ -1,10 +1,19 @@
 import React from "react";
-import { Stack, Link } from "expo-router";
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+
 
 export default function DashboardLayout() {
     return (
-        <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }} />
-        </Stack>
+        <Tabs>
+            <Tabs.Screen
+                name="index"
+                options={{
+                    headerShown: false,
+                    title: "Home",
+                    tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
+                }}
+            />
+        </Tabs>
     )
 }

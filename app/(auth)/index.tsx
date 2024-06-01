@@ -11,10 +11,6 @@ interface AuthFlowState {
     password: string
 }
 
-// const userId = getItem('@user_id');
-// const accessToken = getItem('@access_token');
-// console.log(userId, accessToken)
-
 const AuthFlow = () => {
     const handleSignUp = async (values: AuthFlowState) => {
         try {
