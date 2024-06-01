@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import { Formik } from 'formik';
+import { Formik, } from 'formik';
 import { auth } from 'utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
 import { router } from 'expo-router';
+import Toast from 'react-native-toast-message';
 
 
 interface AuthFlowState {
@@ -14,15 +15,31 @@ interface AuthFlowState {
 
 const AuthSignUp = () => {
 
-    const handleSignUp = async (values: AuthFlowState) => {
+    const handleSignUp = async (values: AuthFlowState, resetForm: any) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed up successfully:', userCredential.user);
 
             router.navigate('/sign-in')
 
+            Toast.show({
+                type: 'success',
+                text1: 'Registreren Succesvol',
+                text2: 'Je bent succesvol geregistreerd.',
+                position: 'top',
+            });
+
+            resetForm()
+
         } catch (error) {
             console.error('Error signing up:', error);
+
+            Toast.show({
+                type: 'error',
+                text1: 'Registreren Mislukt',
+                text2: 'Er is een fout opgetreden. Probeer het opnieuw.',
+                position: 'top',
+            });
         }
     };
 
@@ -32,9 +49,9 @@ const AuthSignUp = () => {
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={AuthFlowSchema}
-                onSubmit={values => handleSignUp(values)}
+                onSubmit={(values, { resetForm }) => handleSignUp(values, resetForm)}
             >
-                {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+                {({ handleChange, handleBlur, handleSubmit, values, errors, touched, }) => (
                     <View>
                         <TextInput
                             style={styles.input}

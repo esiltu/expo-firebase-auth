@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
-import { useToast, Toast, VStack, ToastTitle, ToastDescription } from '@gluestack-ui/themed';
+import Toast from 'react-native-toast-message';
 
 interface AuthFlowState {
     email: string,
@@ -14,36 +14,32 @@ interface AuthFlowState {
 }
 
 const AuthSignIn = () => {
-    const toast = useToast();
 
     const handleSignUp = async (values: AuthFlowState) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed in successfully:', userCredential.user);
 
-            // Store user info
             await storeUserInfo(userCredential.user);
 
-            // Display toast message
-            toast.show({
-                placement: "top",
-                render: ({ id }) => {
-                    const toastId = "toast-" + id;
-                    return (
-                        <View style={styles.toastContainer}>
-                            <Text style={styles.toastTitle}>Login Succesvol</Text>
-                            <Text style={styles.toastDescription}>
-                                Je bent successvol ingelogd.
-                            </Text>
-                        </View>
-                    );
-                },
+            Toast.show({
+                type: 'success',
+                text1: 'Login Succesvol',
+                text2: 'Je bent succesvol ingelogd.',
+                position: 'top',
             });
 
             router.navigate('(dashboard)');
 
         } catch (error) {
             console.error('Error signing in:', error);
+
+            Toast.show({
+                type: 'error',
+                text1: 'Inloggen Mislukt',
+                text2: 'Er is een fout opgetreden. Probeer het opnieuw.',
+                position: 'top',
+            });
         }
     };
 
