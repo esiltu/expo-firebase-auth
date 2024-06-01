@@ -1,14 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const diensten = () => {
+import SafeView from '~/components/SafeView'
+
+const Diensten = () => {
     return (
-        <View>
-            <Text>diensten</Text>
-        </View>
+        <SafeView>
+            <View>
+                <Text>diensten</Text>
+            </View>
+        </SafeView>
     )
 }
 
-export default diensten
+export default Diensten
 
 const styles = StyleSheet.create({})

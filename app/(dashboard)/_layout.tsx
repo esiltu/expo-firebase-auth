@@ -2,10 +2,9 @@ import React from "react";
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 
-
 export default function DashboardLayout() {
     return (
-        <Tabs screenOptions={{ headerShown: false }}>
+        <Tabs screenOptions={{ headerShown: false, }}>
             <Tabs.Screen
                 name="index"
                 options={{

@@ -1,14 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const settings = () => {
+import SafeView from '~/components/SafeView'
+
+const Settings = () => {
     return (
-        <View>
-            <Text>settings</Text>
-        </View>
+        <SafeView>
+            <View>
+                <Text>Settings</Text>
+            </View>
+        </SafeView>
     )
 }
 
-export default settings
+export default Settings
 
 const styles = StyleSheet.create({})
