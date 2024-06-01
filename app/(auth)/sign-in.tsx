@@ -157,24 +157,4 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
-    toastContainer: {
-        backgroundColor: '#4CAF50', // Green color for success
-        padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        marginHorizontal: 20,
-        marginTop: 10,
-        borderColor: '#4CAF50',
-        borderWidth: 1,
-    },
-    toastTitle: {
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    toastDescription: {
-        color: '#fff',
-        fontSize: 16,
-        marginTop: 5,
-    },
 });
