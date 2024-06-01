@@ -6,4 +6,4 @@ const SignUpSchema = Yup.object().shape({
 });
 
 
-export default { SignUpSchema }
+export default SignUpSchema 
