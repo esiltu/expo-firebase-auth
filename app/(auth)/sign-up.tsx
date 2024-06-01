@@ -20,27 +20,10 @@ const AuthSignUp = () => {
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed up successfully:', userCredential.user);
 
-            // Store user info
-            await storeUserInfo(userCredential.user);
-
-            router.navigate('(dashboard)')
+            router.navigate('/sign-in')
 
         } catch (error) {
             console.error('Error signing up:', error);
-        }
-    };
-
-    // Use MKVV storage because it is really fast... 
-    const storeUserInfo = async (user: any) => {
-        try {
-            setItem('@user_id', user.uid);
-            setItem('@user_email', user.email);
-            setItem('@email_verified', JSON.stringify(user.emailVerified));
-            setItem('@access_token', user.stsTokenManager.accessToken);
-            setItem('@refresh_token', user.stsTokenManager.refreshToken);
-            setItem('@token_expiration', JSON.stringify(user.stsTokenManager.expirationTime));
-        } catch (error) {
-            console.error('Error storing user info:', error);
         }
     };
 
