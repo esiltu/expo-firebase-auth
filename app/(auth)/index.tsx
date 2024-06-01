@@ -5,7 +5,7 @@ import { auth } from 'utils/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
 import { setItem } from '~/store/storage';
-import { useAuth } from '~/context/AuthProvider';
+import { router } from 'expo-router';
 
 
 interface AuthFlowState {
@@ -22,6 +22,8 @@ const AuthFlow = () => {
 
             // Store user info
             await storeUserInfo(userCredential.user);
+
+            router.navigate('(dashboard)')
 
         } catch (error) {
             console.error('Error signing up:', error);
