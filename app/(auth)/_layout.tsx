@@ -1,10 +1,12 @@
 import React from "react";
-import { Stack, Link } from "expo-router";
+import { Stack } from "expo-router";
 
 export default function AuthLayout() {
     return (
         <Stack>
             <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="sign-up" />
+            <Stack.Screen name="sign-in" />
         </Stack>
-    )
+    );
 }
