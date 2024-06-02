@@ -19,6 +19,7 @@
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/drawer": "^6.6.15",
     "@react-navigation/native": "^6.1.7",
+    "@shopify/flash-list": "^1.6.4",
     "axios": "^1.7.2",
     "expo": "^51.0.9",
     "expo-constants": "~16.0.1",

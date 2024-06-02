@@ -14,6 +14,10 @@ export default function HeaderAuth() {
         'DynaPuff-Regular': require('assets/fonts/DynaPuff-Regular.ttf')
     });
 
+    if (!fontsLoaded && !fontError) {
+        return null;
+    }
+
     useEffect(() => {
         async function getUserInfo() {
             try {
@@ -25,10 +29,6 @@ export default function HeaderAuth() {
         }
         getUserInfo();
     }, []);
-
-    if (!fontsLoaded && !fontError) {
-        return null;
-    }
 
     return (
         <View style={styles.headerContainer}>
