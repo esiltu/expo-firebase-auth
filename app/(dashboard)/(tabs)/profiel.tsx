@@ -4,7 +4,7 @@ import { getItem, removeItem, setItem } from 'store/storage';
 import { Link, useRouter } from 'expo-router';
 import { sendEmailVerification } from 'firebase/auth';
 import { auth } from 'utils/firebase';
-import { Badge, BadgeText, Button, ButtonText, ButtonIcon, MailIcon, Alert, AlertIcon, AlertText, InfoIcon } from '@gluestack-ui/themed';
+import { Button, ButtonText, ButtonIcon, MailIcon, Alert, AlertIcon, AlertText, InfoIcon } from '@gluestack-ui/themed';
 
 interface UserInfo {
     userId: string;
@@ -12,7 +12,7 @@ interface UserInfo {
     isVerified: boolean;
 }
 
-const Settings: React.FC = () => {
+const Profiel: React.FC = () => {
     const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,7 +25,7 @@ const Settings: React.FC = () => {
                 const email = await getItem('@user_email');
                 const isVerified = await getItem('@email_verified');
 
-                console.log(isVerified);
+                console.log("Email is verified?: " + isVerified);
 
                 if (userId && email && isVerified) {
                     setUserInfo({
@@ -49,10 +49,9 @@ const Settings: React.FC = () => {
         if (user) {
             try {
                 await sendEmailVerification(user);
-                RNAlert.alert('Verification Email Sent', 'Please check your email to verify your account.');
-                console.log("Verification email sent");
+                RNAlert.alert('Verificatie-email Verzonden', 'Controleer je email om je account te verifiëren.');
+                console.log("Verificatie-email verzonden");
 
-                // Reload user data
                 await user.reload();
                 const refreshedUser = auth.currentUser;
                 if (refreshedUser?.emailVerified) {
@@ -60,14 +59,15 @@ const Settings: React.FC = () => {
                     setUserInfo((prev) => prev && { ...prev, isVerified: true });
                 }
             } catch (error) {
-                console.error('Error sending email verification:', error);
-                RNAlert.alert('Error', 'Failed to send verification email.');
+                console.error('Fout bij het verzenden van de verificatie-email:', error);
+                RNAlert.alert('Fout', 'Verzenden van verificatie-email mislukt.');
             }
         } else {
-            console.error('No authenticated user');
-            RNAlert.alert('Error', 'No authenticated user. Please log in again.');
+            console.error('Geen geauthenticeerde gebruiker');
+            RNAlert.alert('Fout', 'Geen geauthenticeerde gebruiker. Log opnieuw in.');
         }
     };
+
 
     const logOutFromApp = async () => {
         try {
@@ -88,7 +88,7 @@ const Settings: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.settingsContainerInfo}>
-                <Text style={styles.title}>Settings</Text>
+                <Text style={styles.title}>Profiel</Text>
                 {loading ? (
                     <Text>Loading user information...</Text>
                 ) : userInfo ? (
@@ -141,7 +141,7 @@ const Settings: React.FC = () => {
     );
 };
 
-export default Settings;
+export default Profiel;
 
 const styles = StyleSheet.create({
     container: {
