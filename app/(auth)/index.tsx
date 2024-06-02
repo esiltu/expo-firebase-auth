@@ -3,6 +3,7 @@ import { View, Text, Button, SafeAreaView, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 
 const AuthIndex = () => {
+
     const router = useRouter();
 
     return (
