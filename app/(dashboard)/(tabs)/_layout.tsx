@@ -21,11 +21,19 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="schema"
+        options={{
+          title: "Rooster",
+          tabBarActiveTintColor: '#f3a683',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="calendar-outline" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="profiel"
         options={{
           title: "Profiel",
           tabBarActiveTintColor: '#f3a683',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="settings-outline" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="person-outline" color={color} />,
         }}
       />
     </Tabs>

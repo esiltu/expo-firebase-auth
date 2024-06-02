@@ -46,6 +46,7 @@ const Profiel: React.FC = () => {
 
     const sendVerificationEmail = async () => {
         const user = auth.currentUser;
+
         if (user) {
             try {
                 await sendEmailVerification(user);
