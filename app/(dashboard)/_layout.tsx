@@ -1,6 +1,7 @@
-import { Ionicons } from '@expo/vector-icons';
+// app/_layout.tsx
+import React from 'react';
 import { Drawer } from 'expo-router/drawer';
-
+import { Ionicons } from '@expo/vector-icons';
 
 const DrawerLayout = () => (
     <Drawer>
@@ -11,6 +12,36 @@ const DrawerLayout = () => (
                 drawerLabel: 'Home',
                 drawerIcon: ({ size, color }) => (
                     <Ionicons name="home-outline" size={size} color={color} />
+                ),
+            }}
+        />
+        <Drawer.Screen
+            name="pages/app-icoon"
+            options={{
+                headerTitle: "",
+                drawerLabel: 'Kies App Icoon',
+                drawerIcon: ({ size, color }) => (
+                    <Ionicons name="home-outline" size={size} color={color} />
+                ),
+            }}
+        />
+        <Drawer.Screen
+            name="pages/bestanden-flex"
+            options={{
+                headerTitle: "",
+                drawerLabel: 'Bestanden Flex',
+                drawerIcon: ({ size, color }) => (
+                    <Ionicons name="document-outline" size={size} color={color} />
+                ),
+            }}
+        />
+        <Drawer.Screen
+            name="pages/profiel-inzien"
+            options={{
+                headerTitle: "",
+                drawerLabel: 'Profiel Inzien',
+                drawerIcon: ({ size, color }) => (
+                    <Ionicons name="eye-outline" size={size} color={color} />
                 ),
             }}
         />

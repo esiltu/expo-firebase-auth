@@ -18,19 +18,19 @@ const SettingsOptions: SettingsOption[] = [
         id: 'appIcon',
         title: 'Kies App Icoon',
         icon: 'image-outline',
-        navigateTo: 'AppIcon',
+        navigateTo: 'app-icoon',
     },
     {
         id: 'userInfo',
         title: 'Profiel Inzien',
         icon: 'person-circle-outline',
-        navigateTo: 'UserInfo',
+        navigateTo: 'profiel-inzien',
     },
     {
         id: 'bestandenFlexWerker',
         title: 'Bestanden Flexwerker',
         icon: 'briefcase-outline',
-        navigateTo: 'BestandenWerker',
+        navigateTo: 'bestanden-flex',
     },
     {
         id: 'notificiatieService',
@@ -44,7 +44,7 @@ export default function Profiel() {
     const router = useRouter();
 
     const handlePress = (navigateTo: string) => {
-        router.push(navigateTo);
+        router.replace(navigateTo);
     };
 
 

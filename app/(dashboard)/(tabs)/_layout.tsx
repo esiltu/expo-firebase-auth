@@ -1,9 +1,10 @@
+// app/(tabs)/_layout.tsx
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: false, }}>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
         name="index"
         options={{
@@ -36,26 +37,12 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons size={28} name="person-outline" color={color} />,
         }}
       />
-      {/* Don't want to see on Tab page maybe? */}
       <Tabs.Screen
-        name="app-icoon"
+        name="zoekenpagina"
         options={{
-          href: null,
+          href: null
         }}
       />
-      <Tabs.Screen
-        name="bestanden-flex"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="profiel-inzien"
-        options={{
-          href: null,
-        }}
-      />
-      {/* End of it! */}
     </Tabs>
   );
 }
