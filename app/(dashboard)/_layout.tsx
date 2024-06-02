@@ -1,4 +1,3 @@
-// app/_layout.tsx
 import React from 'react';
 import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from '@expo/vector-icons';
@@ -21,7 +20,7 @@ const DrawerLayout = () => (
                 headerTitle: "",
                 drawerLabel: 'Kies App Icoon',
                 drawerIcon: ({ size, color }) => (
-                    <Ionicons name="home-outline" size={size} color={color} />
+                    <Ionicons name="brush-outline" size={size} color={color} />
                 ),
             }}
         />
@@ -41,7 +40,7 @@ const DrawerLayout = () => (
                 headerTitle: "",
                 drawerLabel: 'Profiel Inzien',
                 drawerIcon: ({ size, color }) => (
-                    <Ionicons name="eye-outline" size={size} color={color} />
+                    <Ionicons name="person-circle-outline" size={size} color={color} />
                 ),
             }}
         />

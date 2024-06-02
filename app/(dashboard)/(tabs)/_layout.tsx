@@ -37,12 +37,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons size={28} name="person-outline" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="zoekenpagina"
-        options={{
-          href: null
-        }}
-      />
     </Tabs>
   );
 }
