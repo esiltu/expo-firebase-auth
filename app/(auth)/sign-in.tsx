@@ -16,7 +16,7 @@ interface AuthFlowState {
 
 const AuthSignIn = () => {
 
-    const handleSignUp = async (values: AuthFlowState) => {
+    const handleSignUp = async (values: AuthFlowState, resetForm: any) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed in successfully:', userCredential.user);
@@ -31,6 +31,8 @@ const AuthSignIn = () => {
             });
 
             router.navigate('(dashboard)');
+
+            resetForm()
 
         } catch (error) {
             console.error('Error signing in:', error);
@@ -75,9 +77,9 @@ const AuthSignIn = () => {
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={AuthFlowSchema}
-                    onSubmit={values => handleSignUp(values)}
+                    onSubmit={(values, { resetForm }) => handleSignUp(values, resetForm)}
                 >
-                    {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+                    {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched }) => (
                         <View>
                             <TextInput
                                 style={styles.input}
