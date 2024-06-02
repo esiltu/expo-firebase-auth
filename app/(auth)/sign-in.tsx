@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Platform, Button } from 'react-native';
 import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';

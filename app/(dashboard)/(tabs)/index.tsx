@@ -1,14 +1,21 @@
-import { Stack } from 'expo-router';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-import SafeView from '~/components/SafeView';
+
 
 export default function Home() {
   return (
-    <SafeView>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text>Hello !</Text>
       </View>
-    </SafeView>
+    </SafeAreaView>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white"
+  }
+})

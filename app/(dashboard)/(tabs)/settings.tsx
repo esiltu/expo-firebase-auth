@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { getItem, removeItem, storage, } from 'store/storage'
-import { Link, useRouter } from 'expo-router'
-import { useAuth } from 'context/AuthProvider'
-import { Badge, BadgeText, Button, ButtonText, ButtonIcon, MailIcon, Alert, AlertIcon, AlertText, InfoIcon } from '@gluestack-ui/themed'
-
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, View, Alert as RNAlert } from 'react-native';
+import { getItem, removeItem, setItem } from 'store/storage';
+import { Link, useRouter } from 'expo-router';
+import { sendEmailVerification } from 'firebase/auth';
+import { auth } from 'utils/firebase';
+import { Badge, BadgeText, Button, ButtonText, ButtonIcon, MailIcon, Alert, AlertIcon, AlertText, InfoIcon } from '@gluestack-ui/themed';
 
 interface UserInfo {
     userId: string;
@@ -13,49 +13,77 @@ interface UserInfo {
 }
 
 const Settings: React.FC = () => {
-    const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const router = useRouter();
 
     useEffect(() => {
         async function fetchUserInfo() {
             try {
-                const userId = await getItem('@user_id')
-                const email = await getItem('@user_email')
-                const isVerified = await getItem('@email_verified')
+                const userId = await getItem('@user_id');
+                const email = await getItem('@user_email');
+                const isVerified = await getItem('@email_verified');
+
+                console.log(isVerified);
 
                 if (userId && email && isVerified) {
                     setUserInfo({
                         userId,
                         email,
-                        isVerified: JSON.parse(isVerified)
-                    })
+                        isVerified: JSON.parse(isVerified),
+                    });
                 }
             } catch (error) {
-                console.error('Failed to load user info:', error)
+                console.error('Failed to load user info:', error);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         }
 
-        fetchUserInfo()
-    }, [])
+        fetchUserInfo();
+    }, []);
 
-    function logOutFromApp() {
-        try {
-            removeItem('@user_id'),
-                removeItem('@user_email'),
-                removeItem('@email_verified'),
-                removeItem('@access_token'),
-                removeItem('@refresh_token'),
-                removeItem('@token_expiration'),
-                console.log("Successfully logged out!")
-            router.replace('(auth)')
-        } catch (error) {
+    const sendVerificationEmail = async () => {
+        const user = auth.currentUser;
+        if (user) {
+            try {
+                await sendEmailVerification(user);
+                RNAlert.alert('Verification Email Sent', 'Please check your email to verify your account.');
+                console.log("Verification email sent");
 
+                // Reload user data
+                await user.reload();
+                const refreshedUser = auth.currentUser;
+                if (refreshedUser?.emailVerified) {
+                    await setItem('@email_verified', JSON.stringify(true));
+                    setUserInfo((prev) => prev && { ...prev, isVerified: true });
+                }
+            } catch (error) {
+                console.error('Error sending email verification:', error);
+                RNAlert.alert('Error', 'Failed to send verification email.');
+            }
+        } else {
+            console.error('No authenticated user');
+            RNAlert.alert('Error', 'No authenticated user. Please log in again.');
         }
-    }
+    };
+
+    const logOutFromApp = async () => {
+        try {
+            await auth.signOut();
+            removeItem('@user_id');
+            removeItem('@user_email');
+            removeItem('@email_verified');
+            removeItem('@access_token');
+            removeItem('@refresh_token');
+            removeItem('@token_expiration');
+            console.log("Successfully logged out!");
+            router.replace('(auth)');
+        } catch (error) {
+            console.error('Error logging out:', error);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -68,25 +96,27 @@ const Settings: React.FC = () => {
                         <Text>User ID: {userInfo.userId}</Text>
                         <Text>Email: {userInfo.email}</Text>
 
-                        <Alert mx='$2.5' action="info" variant="solid" right={10} >
+                        <Alert mx='$2.5' action="info" variant="solid" right={10}>
                             <AlertIcon as={InfoIcon} mr="$3" right={5} />
                             <AlertText right={10}>
-                                Email Verified:  {userInfo.isVerified ? 'Yes' : 'No'}
+                                Email Verified: {userInfo.isVerified ? 'Yes' : 'No'}
                             </AlertText>
                         </Alert>
 
-                        <Button
-                            size='md'
-                            variant="solid"
-                            action="positive"
-                            isDisabled={false}
-                            isFocusVisible={false}
-                            top={5}
-                            onPress={() => console.log("Pressed on me")}
-                        >
-                            <ButtonText textAlign='left' right={65}>Verify email right now</ButtonText>
-                            <ButtonIcon as={MailIcon} right={55} />
-                        </Button>
+                        {!userInfo.isVerified && (
+                            <Button
+                                size='md'
+                                variant="solid"
+                                action="positive"
+                                isDisabled={false}
+                                isFocusVisible={false}
+                                top={5}
+                                onPress={sendVerificationEmail}
+                            >
+                                <ButtonText textAlign='left' right={65}>Verify email right now</ButtonText>
+                                <ButtonIcon as={MailIcon} right={55} />
+                            </Button>
+                        )}
 
                         <Link href="(auth)" asChild>
                             <Button
@@ -102,17 +132,16 @@ const Settings: React.FC = () => {
                                 <ButtonText textAlign='left' right={130}>Log out?</ButtonText>
                             </Button>
                         </Link>
-
                     </View>
                 ) : (
                     <Text>No user information found.</Text>
                 )}
             </View>
         </SafeAreaView>
-    )
-}
+    );
+};
 
-export default Settings
+export default Settings;
 
 const styles = StyleSheet.create({
     container: {
@@ -131,4 +160,4 @@ const styles = StyleSheet.create({
     userInfoContainer: {
         marginTop: 16,
     },
-})
+});

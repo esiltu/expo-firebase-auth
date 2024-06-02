@@ -1,9 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { View, ActivityIndicator } from 'react-native';
 import { getItem } from 'store/storage';
 import { useRouter } from 'expo-router';
 
-// Create Auth Context
+
 const AuthContext = createContext<{ isAuthenticated: boolean | null }>({ isAuthenticated: null });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
