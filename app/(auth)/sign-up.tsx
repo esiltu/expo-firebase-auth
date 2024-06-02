@@ -43,6 +43,14 @@ const AuthSignUp = () => {
         }
     };
 
+    const goToSignInPageBtn = () => {
+        try {
+            router.navigate('/sign-in')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Sign Up</Text>
@@ -74,6 +82,7 @@ const AuthSignUp = () => {
                         />
                         {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
                         <Button title="Sign Up" onPress={handleSubmit as any} />
+                        <Button title="Heb je al een account? Log in" onPress={goToSignInPageBtn as any} />
                     </View>
                 )}
             </Formik>

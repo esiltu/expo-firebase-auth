@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Button } from 'react-native';
 import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -7,6 +7,7 @@ import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
 import Toast from 'react-native-toast-message';
+
 
 interface AuthFlowState {
     email: string,
@@ -56,6 +57,14 @@ const AuthSignIn = () => {
         }
     };
 
+    const goToSignUpPageBtn = () => {
+        try {
+            router.navigate('/sign-up')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -92,9 +101,8 @@ const AuthSignIn = () => {
                                 placeholderTextColor="#aaa"
                             />
                             {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-                            <TouchableOpacity style={styles.button} onPress={handleSubmit as any}>
-                                <Text style={styles.buttonText}>Sign In</Text>
-                            </TouchableOpacity>
+                            <Button onPress={handleSubmit as any} title='Sign In' />
+                            <Button onPress={goToSignUpPageBtn as any} title='Geen account? Registreer nu nog!' />
                         </View>
                     )}
                 </Formik>
