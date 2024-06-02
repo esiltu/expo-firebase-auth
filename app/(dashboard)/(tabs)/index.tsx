@@ -1,13 +1,12 @@
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
+import HeaderAuth from '~/components/Header';
 
 
 export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text>Hello !</Text>
-      </View>
+      <HeaderAuth />
     </SafeAreaView>
   );
 }

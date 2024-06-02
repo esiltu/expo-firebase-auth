@@ -11,7 +11,14 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/DynaPuff-Regular.ttf"
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
