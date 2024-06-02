@@ -36,6 +36,26 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons size={28} name="person-outline" color={color} />,
         }}
       />
+      {/* Don't want to see on Tab page maybe? */}
+      <Tabs.Screen
+        name="app-icoon"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="bestanden-flex"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="profiel-inzien"
+        options={{
+          href: null,
+        }}
+      />
+      {/* End of it! */}
     </Tabs>
   );
 }
