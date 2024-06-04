@@ -26,12 +26,12 @@ Currently under maintenance, so updates will follow!
 
 ## 🛠 Tech Stack
 
-- **Firebase**: For authentication flow
+- **Firebase**: For authentication flow ([Firebase site](https://firebase.google.com/))
 - **Expo Router**: For navigation logic ([Expo Router Documentation](https://docs.expo.dev/router/introduction/))
 - **Gluestack-UI**: For UI components ([Gluestack-UI](https://gluestack.io/))
 - **Custom Fonts**: From Google 😎
-- **TypeScript with React Native**: Created with [Create Expo Stack](https://createexpostack.com/)
-- **MMKV Storage**: For storing, retrieving and deleting data
+- **TypeScript with React Native**: Created with ([Create Expo Stack](https://createexpostack.com/))
+- **MMKV Storage**: For storing, retrieving and deleting data ([MMKV](https://github.com/mrousavy/react-native-mmkv))
 
 ## 📥 Installation
 
