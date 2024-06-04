@@ -8,7 +8,7 @@ Welcome to the **Expo - Firebase - Kit** repository! This project is a starter k
 
 ## Description
 
-This template integrates Firebase for authentication, including SignIn, SignUp, auth check on app rendering, tabs with drawer for authenticated users, and email verification. It is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript.
+This starter kit is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript. It integrates Firebase for authentication, including SignIn, SignUp, auth check on app rendering, tabs with drawer navigation for authenticated users, and email verification. Currently under maintenance, so updates will follow!
 
 ## 📚 Table of Contents
 
