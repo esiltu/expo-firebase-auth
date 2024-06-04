@@ -8,7 +8,14 @@ Welcome to the **Expo - Firebase - Kit** repository! This project is a starter k
 
 ## Description
 
-This starter kit is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript. It integrates Firebase for authentication, including SignIn, SignUp, auth check on app rendering, tabs with drawer navigation for authenticated users, and email verification. Currently under maintenance, so updates will follow!
+This starter kit is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript. It integrates Firebase for a seamless authentication experience:
+
+- 🔐 **SignIn & SignUp**: User authentication made easy.
+- 🔄 **Auth Check on App Rendering**: Ensure users are authenticated on each app load.
+- 🗂 **Tabs with Drawer Navigation**: Smooth navigation for authenticated users.
+- 📧 **Email Verification**: Secure your app with email verification.
+
+Currently under maintenance, so updates will follow!
 
 ## 📚 Table of Contents
 
@@ -31,7 +38,7 @@ To set up the project locally, you will need to install the necessary dependenci
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/esiltu/VacatureShift-V1
+    git clone https://github.com/esiltu/expo-firebase-auth
     cd your-repo-name
     ```
 
