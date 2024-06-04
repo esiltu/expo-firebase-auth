@@ -18,7 +18,7 @@ const DrawerLayout = () => (
             name="pages/app-icoon"
             options={{
                 headerTitle: "",
-                drawerLabel: 'Kies App Icoon',
+                drawerLabel: 'Choose App Icon',
                 drawerIcon: ({ size, color }) => (
                     <Ionicons name="brush-outline" size={size} color={color} />
                 ),
@@ -28,7 +28,7 @@ const DrawerLayout = () => (
             name="pages/bestanden-flex"
             options={{
                 headerTitle: "",
-                drawerLabel: 'Bestanden Flex',
+                drawerLabel: 'Files Flex',
                 drawerIcon: ({ size, color }) => (
                     <Ionicons name="document-outline" size={size} color={color} />
                 ),
@@ -38,7 +38,7 @@ const DrawerLayout = () => (
             name="pages/profiel-inzien"
             options={{
                 headerTitle: "",
-                drawerLabel: 'Profiel Inzien',
+                drawerLabel: 'View Profile',
                 drawerIcon: ({ size, color }) => (
                     <Ionicons name="person-circle-outline" size={size} color={color} />
                 ),
