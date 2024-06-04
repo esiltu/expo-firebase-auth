@@ -6,9 +6,7 @@ import { AuthProvider, useAuth } from '~/context/AuthProvider';
 import { Slot } from 'expo-router';
 import { ActivityIndicator, View } from 'react-native';
 import Toast from 'react-native-toast-message';
-import axios from 'axios';
 
-axios.defaults.baseURL = "https://esdevelops.pro"
 
 export default function RootLayout() {
   return (

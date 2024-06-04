@@ -31,6 +31,7 @@ Currently under maintenance, so updates will follow!
 - **Gluestack-UI**: For UI components ([Gluestack-UI](https://gluestack.io/))
 - **Custom Fonts**: From Google 😎
 - **TypeScript with React Native**: Created with [Create Expo Stack](https://createexpostack.com/)
+- **MMKV Storage**: For storing, retrieving and deleting data
 
 ## 📥 Installation
 
