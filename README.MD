@@ -1,6 +1,6 @@
-# 🚀 IT Freelancer Connector App
+# 🚀 Expo - Firebase - Kit
 
-Welcome to the **IT Freelancer Connector App** repository! This project is designed to help connect people within the IT sector in the Netherlands, focusing on freelance job opportunities and career maintenance.
+Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3, Gluestack-UI, and Firebase for authentication.
 
 ## Maintainer
 
@@ -8,7 +8,7 @@ Welcome to the **IT Freelancer Connector App** repository! This project is desig
 
 ## Description
 
-This app is a platform for connecting IT professionals in the Netherlands, allowing them to search for freelance jobs and find resources to support their freelancer careers.
+This template integrates Firebase for authentication, including SignIn, SignUp, auth check on app rendering, tabs with drawer for authenticated users, and email verification. It is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript.
 
 ## 📚 Table of Contents
 
@@ -21,7 +21,7 @@ This app is a platform for connecting IT professionals in the Netherlands, allow
 
 - **Firebase**: For authentication flow
 - **Expo Router**: For navigation logic ([Expo Router Documentation](https://docs.expo.dev/router/introduction/))
-- **Gluestack-UI**: For UI components... -> [Gluestack-UI](https://gluestack.io/)
+- **Gluestack-UI**: For UI components ([Gluestack-UI](https://gluestack.io/))
 - **Custom Fonts**: From Google 😎
 - **TypeScript with React Native**: Created with [Create Expo Stack](https://createexpostack.com/)
 
@@ -49,8 +49,18 @@ This is a development build application, so you will need to make development bu
     npx expo prebuild
     ```
 
-2. The project uses a `.env` file for storing secret Firebase keys. Ensure you have your Firebase keys set up in the `.env` file.
+2. The project uses a `.env` file for storing secret Firebase keys. Ensure you have your Firebase keys set up in the `.env` file with the following variables:
+    ```env
+    EXPO_PUBLIC_FIREBASE_API_KEY=
+    EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=
+    EXPO_PUBLIC_DATABASE_URL=
+    EXPO_PUBLIC_PROJECT_ID=
+    EXPO_PUBLIC_STORAGE_BUCKET=
+    EXPO_PUBLIC_MESSAGING_SENDER_ID=
+    EXPO_PUBLIC_APP_ID=
+    EXPO_PUBLIC_MEASUREMENT_ID=
+    ```
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you would like to contribute to the project, please fork the repository and create a pull request.
+Contributions are welcome! If you would like to contribute to the project, please fork the repository and create a pull request. More features are coming soon!
