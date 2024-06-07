@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Alert as RNAlert } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Alert as RNAlert, TouchableOpacity } from 'react-native';
 import { getItem, removeItem, setItem } from 'store/storage';
 import { Link, useRouter } from 'expo-router';
 import { sendEmailVerification } from 'firebase/auth';
 import { auth } from 'utils/firebase';
-import { Button, ButtonText, ButtonIcon, MailIcon, Alert, AlertIcon, AlertText, InfoIcon } from '@gluestack-ui/themed';
+import { MaterialIcons } from '@expo/vector-icons';
 
 interface UserInfo {
     userId: string;
@@ -50,8 +50,8 @@ const Profiel: React.FC = () => {
         if (user) {
             try {
                 await sendEmailVerification(user);
-                RNAlert.alert('Verificatie-email Verzonden', 'Controleer je email om je account te verifiëren.');
-                console.log("Verificatie-email verzonden");
+                RNAlert.alert('Verification Email Sent', 'Check your email to verify your account.');
+                console.log("Verification email sent");
 
                 await user.reload();
                 const refreshedUser = auth.currentUser;
@@ -60,15 +60,14 @@ const Profiel: React.FC = () => {
                     setUserInfo((prev) => prev && { ...prev, isVerified: true });
                 }
             } catch (error) {
-                console.error('Fout bij het verzenden van de verificatie-email:', error);
-                RNAlert.alert('Fout', 'Verzenden van verificatie-email mislukt.');
+                console.error('Error sending verification email:', error);
+                RNAlert.alert('Error', 'Failed to send verification email.');
             }
         } else {
-            console.error('Geen geauthenticeerde gebruiker');
-            RNAlert.alert('Fout', 'Geen geauthenticeerde gebruiker. Log opnieuw in.');
+            console.error('No authenticated user');
+            RNAlert.alert('Error', 'No authenticated user. Please log in again.');
         }
     };
-
 
     const logOutFromApp = async () => {
         try {
@@ -89,49 +88,33 @@ const Profiel: React.FC = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.settingsContainerInfo}>
-                <Text style={styles.title}>Profiel</Text>
+                <Text style={styles.title}>Profile</Text>
                 {loading ? (
                     <Text>Loading user information...</Text>
                 ) : userInfo ? (
                     <View style={styles.userInfoContainer}>
-                        <Text>User ID: {userInfo.userId}</Text>
-                        <Text>Email: {userInfo.email}</Text>
+                        <Text style={styles.userInfoText}>User ID: {userInfo.userId}</Text>
+                        <Text style={styles.userInfoText}>Email: {userInfo.email}</Text>
 
-                        <Alert mx='$2.5' action="info" variant="solid" right={10}>
-                            <AlertIcon as={InfoIcon} mr="$3" right={5} />
-                            <AlertText right={10}>
+                        <View style={styles.alert}>
+                            <MaterialIcons name="info" size={24} color="blue" style={styles.alertIcon} />
+                            <Text style={styles.alertText}>
                                 Email Verified: {userInfo.isVerified ? 'Yes' : 'No'}
-                            </AlertText>
-                        </Alert>
+                            </Text>
+                        </View>
 
                         {!userInfo.isVerified && (
-                            <Button
-                                size='md'
-                                variant="solid"
-                                action="positive"
-                                isDisabled={false}
-                                isFocusVisible={false}
-                                top={5}
-                                onPress={sendVerificationEmail}
-                            >
-                                <ButtonText textAlign='left' right={65}>Verify email right now</ButtonText>
-                                <ButtonIcon as={MailIcon} right={55} />
-                            </Button>
+                            <TouchableOpacity style={styles.button} onPress={sendVerificationEmail}>
+                                <MaterialIcons name="mail" size={20} color="white" style={styles.buttonIcon} />
+                                <Text style={styles.buttonText}>Verify Email Now</Text>
+                            </TouchableOpacity>
                         )}
 
                         <Link href="(auth)" asChild>
-                            <Button
-                                size='md'
-                                variant="solid"
-                                action="negative"
-                                isDisabled={false}
-                                isFocusVisible={false}
-                                top={5}
-                                marginTop={5}
-                                onPress={logOutFromApp}
-                            >
-                                <ButtonText textAlign='left' right={130}>Log out?</ButtonText>
-                            </Button>
+                            <TouchableOpacity style={styles.logoutButton} onPress={logOutFromApp}>
+                                <MaterialIcons name="logout" size={20} color="white" style={styles.buttonIcon} />
+                                <Text style={styles.buttonText}>Log Out</Text>
+                            </TouchableOpacity>
                         </Link>
                     </View>
                 ) : (
@@ -148,17 +131,71 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        backgroundColor: 'white',
+        backgroundColor: '#f9f9f9',
     },
     settingsContainerInfo: {
         padding: 16,
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+        elevation: 5,
     },
     title: {
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: 'bold',
         marginBottom: 16,
+        color: '#333',
     },
     userInfoContainer: {
         marginTop: 16,
+    },
+    userInfoText: {
+        fontSize: 16,
+        color: '#666',
+        marginBottom: 8,
+    },
+    alert: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginVertical: 16,
+        padding: 10,
+        backgroundColor: '#e7f3fe',
+        borderRadius: 5,
+    },
+    alertIcon: {
+        marginRight: 8,
+    },
+    alertText: {
+        fontSize: 16,
+        color: '#3178c6',
+    },
+    button: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 16,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 5,
+        backgroundColor: '#FFA726',  // Warm color for the verify button
+    },
+    logoutButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 5,
+        backgroundColor: '#FF431A',  // Warm color for the verify button
+    },
+    buttonIcon: {
+        marginRight: 8,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
     },
 });

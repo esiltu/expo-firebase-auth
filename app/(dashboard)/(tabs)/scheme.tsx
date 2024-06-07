@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-const schema = () => {
+
+export default function Scheme() {
     return (
-        <View>
-            <Text>schema</Text>
-        </View>
-    )
+        <SafeAreaView style={styles.container}>
+            <Text>Scheme page..</Text>
+        </SafeAreaView>
+    );
 }
 
-export default schema
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "white"
+    }
+})

@@ -1,18 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-import SafeView from '~/components/SafeView'
+import { HeaderAuth } from 'components/export';
 
-const Diensten = () => {
+
+export default function Jobs() {
     return (
-        <SafeView>
-            <View>
-                <Text>fdfdsfds</Text>
-            </View>
-        </SafeView>
-    )
+        <SafeAreaView style={styles.container}>
+            <Text>Jobs page..</Text>
+        </SafeAreaView>
+    );
 }
 
-export default Diensten
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "white"
+    }
+})

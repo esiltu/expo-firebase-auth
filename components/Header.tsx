@@ -32,7 +32,7 @@ export default function HeaderAuth() {
 
     return (
         <View style={styles.headerContainer}>
-            <Text style={styles.headerTxt}>Welkom terug!</Text>
+            <Text style={styles.headerTxt}>Welcome back!</Text>
             <Text style={styles.headerSecondTxt}>{userInfo?.email} 🤝</Text>
         </View>
     );

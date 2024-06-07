@@ -20,28 +20,29 @@ const AuthSignUp = () => {
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed up successfully:', userCredential.user);
 
-            router.navigate('/sign-in')
+            router.navigate('/sign-in');
 
             Toast.show({
                 type: 'success',
-                text1: 'Registreren Succesvol',
-                text2: 'Je bent succesvol geregistreerd.',
+                text1: 'Registration Successful',
+                text2: 'You have successfully registered.',
                 position: 'top',
             });
 
-            resetForm()
+            resetForm();
 
         } catch (error) {
             console.error('Error signing up:', error);
 
             Toast.show({
                 type: 'error',
-                text1: 'Registreren Mislukt',
-                text2: 'Er is een fout opgetreden. Probeer het opnieuw.',
+                text1: 'Registration Failed',
+                text2: 'An error occurred. Please try again.',
                 position: 'top',
             });
         }
     };
+
 
     const goToSignInPageBtn = () => {
         try {

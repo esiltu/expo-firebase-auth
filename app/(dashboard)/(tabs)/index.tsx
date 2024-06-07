@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-import HeaderAuth from '~/components/Header';
+import { HeaderAuth } from 'components/export';
 
 
 export default function Home() {

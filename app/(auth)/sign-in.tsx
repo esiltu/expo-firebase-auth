@@ -25,26 +25,27 @@ const AuthSignIn = () => {
 
             Toast.show({
                 type: 'success',
-                text1: 'Login Succesvol',
-                text2: 'Je bent succesvol ingelogd.',
+                text1: 'Login Successful',
+                text2: 'You have successfully logged in.',
                 position: 'top',
             });
 
             router.navigate('(dashboard)');
 
-            resetForm()
+            resetForm();
 
         } catch (error) {
             console.error('Error signing in:', error);
 
             Toast.show({
                 type: 'error',
-                text1: 'Inloggen Mislukt',
-                text2: 'Er is een fout opgetreden. Probeer het opnieuw.',
+                text1: 'Login Failed',
+                text2: 'An error occurred. Please try again.',
                 position: 'top',
             });
         }
     };
+
 
     const storeUserInfo = async (user: any) => {
         try {
