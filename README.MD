@@ -14,6 +14,7 @@ This starter kit is built with React Native Expo, using Expo Router v3, Gluestac
 - 🔄 **Auth Check on App Rendering**: Ensure users are authenticated on each app load.
 - 🗂 **Tabs with Drawer Navigation**: Smooth navigation for authenticated users.
 - 📧 **Email Verification**: Secure your app with email verification.
+- 🎨 **Choose App Icon**: Standard 3 app icons for users to select.
 
 Currently under maintenance, so updates will follow!
 
@@ -22,6 +23,7 @@ Currently under maintenance, so updates will follow!
 - [🛠 Tech Stack](#-tech-stack)
 - [📥 Installation](#-installation)
 - [📈 Usage](#-usage)
+- [📄 Project Structure](#-project-structure)
 - [🤝 Contributing](#-contributing)
 
 ## 🛠 Tech Stack
@@ -31,7 +33,7 @@ Currently under maintenance, so updates will follow!
 - **Gluestack-UI**: For UI components ([Gluestack-UI](https://gluestack.io/))
 - **Custom Fonts**: From Google 😎
 - **TypeScript with React Native**: Created with ([Create Expo Stack](https://createexpostack.com/))
-- **MMKV Storage**: For storing, retrieving and deleting data ([MMKV](https://github.com/mrousavy/react-native-mmkv))
+- **MMKV Storage**: For storing, retrieving, and deleting data ([MMKV](https://github.com/mrousavy/react-native-mmkv))
 
 ## 📥 Installation
 
@@ -69,6 +71,34 @@ This is a development build application, so you will need to make development bu
     EXPO_PUBLIC_MEASUREMENT_ID=
     ```
 
-## 🤝 Contributing
+## 📄 Project Structure
 
-Contributions are welcome! If you would like to contribute to the project, please fork the repository and create a pull request. More features are coming soon!
+The app includes the following pages and flow structure:
+
+1. **SignIn Page**: The initial screen for user login.
+2. **SignUp Page**: For new users to create an account.
+3. **Dashboard**: Contains tab and drawer navigation.
+    - **Tabs**:
+        - 🏠 **Home**: Default tab.
+        - 💼 **Jobs**: View available job listings.
+        - 📅 **Scheme**: Manage your schedule.
+        - 👤 **Profile**: User profile and settings page.
+    - **Drawer**:
+        - 🎨 **Choose App Icon**: Select from 3 standard icons.
+        - 📁 **Files Flex**: Manage files within the app.
+        - ⚙️ **Profile/Settings**: Access and update user settings.
+
+```mermaid
+graph TD
+    A[SignIn Page] -->|Existing User| B[Dashboard]
+    A -->|New User| C[SignUp Page]
+    C --> B
+    B --> D[Home Tab]
+    B --> E[Jobs Tab]
+    B --> F[Scheme Tab]
+    B --> G[Profile Tab]
+    G --> I[Profile/Settings]
+    B --> J[Drawer Navigation]
+    J --> K[Choose App Icon]
+    J --> L[Files Flex]
+    J --> I
