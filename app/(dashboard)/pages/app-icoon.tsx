@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { getAppIcon, setAppIcon } from 'expo-dynamic-app-icon';
 import { Ionicons } from '@expo/vector-icons';
 
+
+// Your custom icons .. 🔎😎
+// Default = standard app icon 
 const ICONS = [
     {
         name: 'default',
