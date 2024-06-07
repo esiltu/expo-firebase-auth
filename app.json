@@ -18,6 +18,23 @@
             "./assets/fonts/DynaPuff-Regular.ttf"
           ]
         }
+      ],
+      [
+        "expo-dynamic-app-icon",
+        {
+          "default": {
+            "image": "./assets/app-icons/icon-1.png",
+            "prerendered": true
+          },
+          "optional": {
+            "image": "./assets/app-icons/icon-2.png",
+            "prerendered": true
+          },
+          "fancy": {
+            "image": "./assets/app-icons/icon-3.png",
+            "prerendered": true
+          }
+        }
       ]
     ],
     "experiments": {
@@ -25,7 +42,7 @@
       "tsconfigPaths": true
     },
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app-icons/icon-1.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
