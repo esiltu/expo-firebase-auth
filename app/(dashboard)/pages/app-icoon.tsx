@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, SafeAreaView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { getAppIcon, setAppIcon } from 'expo-dynamic-app-icon';
 import { Ionicons } from '@expo/vector-icons';
@@ -41,30 +41,29 @@ const ChooseAppIcon: React.FC = () => {
     }
 
     return (
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.goBackButton}>
-                <Ionicons name="arrow-back" size={35} color="#2C3E50" />
-            </TouchableOpacity>
-            <Text style={styles.header}>Choose App Icon</Text>
-            <View style={styles.iconContainer}>
-                {ICONS.map((icon) => (
-                    <TouchableOpacity
-                        key={icon.name}
-                        style={[styles.btn, activeIcon === icon.name ? styles.activeBtn : null]}
-                        onPress={() => onChangeAppIcon(icon.name)}
-                    >
-                        <Image
-                            source={icon.icon}
-                            style={[styles.iconImage, { width: iconSize, height: iconSize }]}
-                        />
-                        <Text style={styles.iconText}>{icon.name}</Text>
-                        {activeIcon === icon.name && (
-                            <Ionicons name="checkmark-circle" size={24} style={styles.checkmark} />
-                        )}
-                    </TouchableOpacity>
-                ))}
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'white', }}>
+            <View style={styles.container}>
+                <Text style={styles.header}>Choose App Icon</Text>
+                <View style={styles.iconContainer}>
+                    {ICONS.map((icon) => (
+                        <TouchableOpacity
+                            key={icon.name}
+                            style={[styles.btn, activeIcon === icon.name ? styles.activeBtn : null]}
+                            onPress={() => onChangeAppIcon(icon.name)}
+                        >
+                            <Image
+                                source={icon.icon}
+                                style={[styles.iconImage, { width: iconSize, height: iconSize }]}
+                            />
+                            <Text style={styles.iconText}>{icon.name}</Text>
+                            {activeIcon === icon.name && (
+                                <Ionicons name="checkmark-circle" size={24} style={styles.checkmark} />
+                            )}
+                        </TouchableOpacity>
+                    ))}
+                </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -82,7 +81,6 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 30,
         color: '#2C3E50',
         bottom: '7%',
     },
