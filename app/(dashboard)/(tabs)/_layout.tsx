@@ -14,25 +14,25 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="diensten"
+        name="jobs"
         options={{
-          title: "Diensten",
+          title: "Jobs",
           tabBarActiveTintColor: '#f3a683',
           tabBarIcon: ({ color }) => <Ionicons size={28} name="clipboard-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="schema"
+        name="scheme"
         options={{
-          title: "Rooster",
+          title: "Scheme",
           tabBarActiveTintColor: '#f3a683',
           tabBarIcon: ({ color }) => <Ionicons size={28} name="calendar-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="profiel"
+        name="profile"
         options={{
-          title: "Profiel",
+          title: "Profile",
           tabBarActiveTintColor: '#f3a683',
           tabBarIcon: ({ color }) => <Ionicons size={28} name="person-outline" color={color} />,
         }}
