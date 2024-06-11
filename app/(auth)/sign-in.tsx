@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Platform, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Platform, Button, SafeAreaView } from 'react-native';
 import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -69,48 +69,50 @@ const AuthSignIn = () => {
     }
 
     return (
-        <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={styles.container}
-        >
-            <View style={styles.innerContainer}>
-                <Text style={styles.header}>Sign In</Text>
-                <Formik
-                    initialValues={{ email: '', password: '' }}
-                    validationSchema={AuthFlowSchema}
-                    onSubmit={(values, { resetForm }) => handleSignUp(values, resetForm)}
-                >
-                    {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched }) => (
-                        <View>
-                            <TextInput
-                                style={styles.input}
-                                placeholder="Email"
-                                onChangeText={handleChange('email')}
-                                onBlur={handleBlur('email')}
-                                value={values.email}
-                                keyboardType="email-address"
-                                autoCapitalize="none"
-                                placeholderTextColor="#aaa"
-                            />
-                            {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
-                            <TextInput
-                                style={styles.input}
-                                placeholder="Password"
-                                onChangeText={handleChange('password')}
-                                onBlur={handleBlur('password')}
-                                value={values.password}
-                                secureTextEntry
-                                autoCapitalize="none"
-                                placeholderTextColor="#aaa"
-                            />
-                            {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-                            <Button onPress={handleSubmit as any} title='Sign In' />
-                            <Button onPress={goToSignUpPageBtn as any} title='Geen account? Registreer nu nog!' />
-                        </View>
-                    )}
-                </Formik>
-            </View>
-        </KeyboardAvoidingView>
+        <SafeAreaView style={styles.container}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.container}
+            >
+                <View style={styles.innerContainer}>
+                    <Text style={styles.header}>Sign In</Text>
+                    <Formik
+                        initialValues={{ email: '', password: '' }}
+                        validationSchema={AuthFlowSchema}
+                        onSubmit={(values, { resetForm }) => handleSignUp(values, resetForm)}
+                    >
+                        {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched }) => (
+                            <View>
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Email"
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}
+                                    keyboardType="email-address"
+                                    autoCapitalize="none"
+                                    placeholderTextColor="#aaa"
+                                />
+                                {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Password"
+                                    onChangeText={handleChange('password')}
+                                    onBlur={handleBlur('password')}
+                                    value={values.password}
+                                    secureTextEntry
+                                    autoCapitalize="none"
+                                    placeholderTextColor="#aaa"
+                                />
+                                {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
+                                <Button onPress={handleSubmit as any} title='Sign In' />
+                                <Button onPress={goToSignUpPageBtn as any} title='Geen account? Registreer nu nog!' />
+                            </View>
+                        )}
+                    </Formik>
+                </View>
+            </KeyboardAvoidingView>
+        </SafeAreaView>
     );
 };
 
