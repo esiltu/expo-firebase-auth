@@ -3,20 +3,23 @@ import { View, Text, Button, SafeAreaView, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 
 const AuthIndex = () => {
-
     const router = useRouter();
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.section}>
-                <Text style={styles.header}>Login</Text>
-                <Text style={styles.description}>Wel account log in om diensten te zoeken!</Text>
-                <Button title="Sign In" color="#6200EE" onPress={() => router.navigate('/sign-in')} />
+            <View style={styles.headerContainer}>
+                <Text style={styles.title}>Expo Firebase Auth</Text>
+                <Text style={styles.subtitle}>with TypeScript and Expo Router</Text>
             </View>
             <View style={styles.section}>
-                <Text style={styles.header}>Registreren</Text>
-                <Text style={styles.description}>Geen account? Registreer nu!</Text>
-                <Button title="Sign Up" color="#6200EE" onPress={() => router.navigate('/sign-up')} />
+                <Text style={styles.header}>Login</Text>
+                <Text style={styles.description}>Welcome! Log in to access our services.</Text>
+                <Button title="Sign In" color="#FF7043" onPress={() => router.navigate('/sign-in')} />
+            </View>
+            <View style={styles.section}>
+                <Text style={styles.header}>Register</Text>
+                <Text style={styles.description}>Don't have an account? Sign up now!</Text>
+                <Button title="Sign Up" color="#FF7043" onPress={() => router.navigate('/sign-up')} />
             </View>
         </SafeAreaView>
     );
@@ -27,10 +30,26 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#ECEFF1',
+        padding: 20,
+    },
+    headerContainer: {
+        alignItems: 'center',
+        marginBottom: 30,
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#00796B',
+        textAlign: 'center',
+    },
+    subtitle: {
+        fontSize: 18,
+        color: '#00796B',
+        textAlign: 'center',
     },
     section: {
-        width: '80%',
+        width: '90%',
         padding: 20,
         marginBottom: 20,
         backgroundColor: '#FFFFFF',
@@ -45,12 +64,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
-        color: '#6200EE',
+        color: '#00796B',
+        textAlign: 'left',
     },
     description: {
         fontSize: 16,
         marginBottom: 20,
-        color: '#757575',
+        color: '#607D8B',
+        textAlign: 'left',
     },
 });
 

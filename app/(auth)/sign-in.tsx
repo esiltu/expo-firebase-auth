@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Platform, Button, SafeAreaView } from 'react-native';
 import { Formik } from 'formik';
 import { auth } from 'utils/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
