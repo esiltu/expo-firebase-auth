@@ -5,6 +5,7 @@ import { Link, useRouter } from 'expo-router';
 import { sendEmailVerification } from 'firebase/auth';
 import { auth } from 'utils/firebase';
 import { MaterialIcons } from '@expo/vector-icons';
+import Toast from 'react-native-toast-message';
 
 interface UserInfo {
     userId: string;
@@ -72,6 +73,8 @@ const Profiel: React.FC = () => {
     const logOutFromApp = async () => {
         try {
             await auth.signOut();
+
+            // Remove items from storage
             removeItem('@user_id');
             removeItem('@user_email');
             removeItem('@email_verified');
@@ -79,7 +82,19 @@ const Profiel: React.FC = () => {
             removeItem('@refresh_token');
             removeItem('@token_expiration');
             console.log("Successfully logged out!");
+
+            // Replace screen to segment called (auth)
             router.replace('(auth)');
+
+
+            // Show custom Toast -> edit based on your own use case! 
+            Toast.show({
+                type: 'success',
+                text1: 'Sucessfully logged out!',
+                text2: 'You have successfully logged out 👋.',
+                position: 'top',
+            });
+
         } catch (error) {
             console.error('Error logging out:', error);
         }
