@@ -45,7 +45,10 @@ const Profiel: React.FC = () => {
         fetchUserInfo();
     }, []);
 
+    // Send mail to verify user email
     const sendVerificationEmail = async () => {
+
+        // Check currenct user in app
         const user = auth.currentUser;
 
         if (user) {
@@ -70,6 +73,7 @@ const Profiel: React.FC = () => {
         }
     };
 
+    // Log out from app func
     const logOutFromApp = async () => {
         try {
             await auth.signOut();
@@ -87,7 +91,7 @@ const Profiel: React.FC = () => {
             router.replace('(auth)');
 
 
-            // Show custom Toast -> edit based on your own use case! 
+            // Show custom Toast -> edit based on your own use case
             Toast.show({
                 type: 'success',
                 text1: 'Sucessfully logged out!',
