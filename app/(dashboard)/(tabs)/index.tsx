@@ -1,5 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Button, TouchableOpacity } from 'react-native';
-import { useGlobalSearchParams, useNavigation } from 'expo-router';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 // Components
 import { HeaderAuth } from 'components/export';
