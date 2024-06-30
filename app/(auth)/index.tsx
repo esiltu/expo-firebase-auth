@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Button, SafeAreaView, StyleSheet, Image, Alert, Platform, TouchableOpacity, Modal } from "react-native";
 import { useRouter } from "expo-router";
 import i18n from "~/hooks/useTranslation";
-import * as Updates from 'expo-updates';
 import { getItem, setItem } from "~/store/storage";
 
 type Language = 'en' | 'nl';
@@ -28,24 +27,20 @@ export default function AuthIndex() {
 
 
     const changeLanguage = (lng: Language) => {
+
         setSelectedLanguage(lng);
         setItem('language', lng);
         i18n.changeLanguage(lng);
         setModalVisible(false);
+
         const language = lng === 'en' ? 'English' : 'Dutch';
+
+        // Display in changed language custom message, really nice for UI and UX experience!
         Alert.alert(
-            "Language Changed",
-            `The language has been changed to ${language}. Please restart the app for the changes to take effect.`,
-            [
-                {
-                    text: "Restart Now",
-                    onPress: () => {
-                        Updates.reloadAsync();
-                    },
-                },
-                { text: "Later" },
-            ]
+            t('language-changed'),
+            t('language-changed-description')
         );
+
     };
 
     return (

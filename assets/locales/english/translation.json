@@ -4,5 +4,7 @@
     "home-login-text": "Login",
     "home-login-description-text": "Welcome! Log in to access our services.",
     "home-register-text": "Register",
-    "home-register-description-text": "Don't have an account? Sign up now!"
+    "home-register-description-text": "Don't have an account? Sign up now!",
+    "language-changed": "Language Changed",
+    "language-changed-description": "The language has been changed to English"
 }
