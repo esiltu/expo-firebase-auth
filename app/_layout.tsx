@@ -6,18 +6,22 @@ import { AuthProvider, useAuth } from '~/context/AuthProvider';
 import { Slot } from 'expo-router';
 import { ActivityIndicator, View } from 'react-native';
 import Toast from 'react-native-toast-message';
+import i18n from '~/hooks/useTranslation';
+import { I18nextProvider } from 'react-i18next';
 
 
 export default function RootLayout() {
   return (
     <GluestackUIProvider config={config}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <AuthProvider>
-          <AuthLoader />
-        </AuthProvider>
-        <Toast />
+        <I18nextProvider i18n={i18n}>
+          <AuthProvider>
+            <AuthLoader />
+          </AuthProvider>
+          <Toast />
+        </I18nextProvider>
       </GestureHandlerRootView>
-    </GluestackUIProvider>
+    </GluestackUIProvider >
   );
 }
 
