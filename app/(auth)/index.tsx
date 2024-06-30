@@ -1,22 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Button, SafeAreaView, StyleSheet, Image, Alert, Platform, TouchableOpacity, Modal } from "react-native";
 import { useRouter } from "expo-router";
 import i18n from "~/hooks/useTranslation";
 import * as Updates from 'expo-updates';
+import { getItem, setItem } from "~/store/storage";
+
+type Language = 'en' | 'nl';
 
 export default function AuthIndex() {
 
     const router = useRouter();
 
-    // useTranslation hook descruction
+    // Descructure useTranslation hook..
     const { t } = i18n;
 
-    // Custom hooks for i18n
-    const [selectedLanguage, setSelectedLanguage] = useState('en');
+    // Custom hooks
+    const [selectedLanguage, setSelectedLanguage] = useState<Language>(getItem('language') as Language || 'en');
     const [modalVisible, setModalVisible] = useState(false);
 
-    const changeLanguage = (lng: string) => {
+    useEffect(() => {
+        const storedLanguage = getItem('language') as Language;
+        if (storedLanguage) {
+            setSelectedLanguage(storedLanguage);
+            i18n.changeLanguage(storedLanguage);
+        }
+    }, []);
+
+
+    const changeLanguage = (lng: Language) => {
         setSelectedLanguage(lng);
+        setItem('language', lng);
         i18n.changeLanguage(lng);
         setModalVisible(false);
         const language = lng === 'en' ? 'English' : 'Dutch';
@@ -48,7 +61,7 @@ export default function AuthIndex() {
                         style={styles.flag}
                     />
                     <Text style={styles.languageText}>
-                        {selectedLanguage === 'en' ? 'English' : 'Dutch'} 🌐
+                        Choose Language 🌐
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -96,7 +109,6 @@ const styles = StyleSheet.create({
     header: {
         paddingTop: Platform.OS === 'ios' ? 60 : 40,
         paddingBottom: 20,
-        paddingHorizontal: 20,
         alignItems: 'flex-end',
         justifyContent: 'center',
     },
