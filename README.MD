@@ -11,7 +11,6 @@ Welcome to the **Expo - Firebase - Kit** repository! This project is a starter k
 This starter kit is built with React Native Expo, using Expo Router v3, Gluestack-UI, and TypeScript. It integrates Firebase for a seamless authentication experience:
 
 - 🔐 **SignIn & SignUp**: User authentication made easy.
-- 🔐 **SignIn & SignUp**: User authentication made easy.
 - 🔄 **Auth Check on App Rendering**: Ensure users are authenticated on each app load.
 - 🗂 **Tabs with Drawer Navigation**: Smooth navigation for authenticated users.
 - 📧 **Email Verification**: Secure your app with email verification.
@@ -32,10 +31,7 @@ Currently under maintenance, so updates will follow!
 
 - **Firebase**: For authentication flow ([Firebase site](https://firebase.google.com/))
 - **Expo Router**: For navigation logic ([Expo Router Documentation](https://docs.expo.dev/router/introduction/))
-- **Gluestack-UI**: For UI components ([Gluestack-UI](https://gluestack.io/))
-- **Custom Fonts**: From Google 😎
 - **TypeScript with React Native**: Created with ([Create Expo Stack](https://createexpostack.com/))
-- **MMKV Storage**: For storing, retrieving, and deleting data ([MMKV](https://github.com/mrousavy/react-native-mmkv))
 
 ## 📥 Installation
 
