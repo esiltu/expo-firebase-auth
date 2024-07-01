@@ -1,38 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Button, SafeAreaView, StyleSheet, Image, Alert, Platform, TouchableOpacity, Modal } from "react-native";
 import { useRouter } from "expo-router";
 import i18n from "~/hooks/useTranslation";
-import * as Updates from 'expo-updates';
+import { getItem, setItem } from "~/store/storage";
+
+type Language = 'en' | 'nl';
 
 export default function AuthIndex() {
 
     const router = useRouter();
 
-    // useTranslation hook descruction
+    // Descructure useTranslation hook..
     const { t } = i18n;
 
-    // Custom hooks for i18n
-    const [selectedLanguage, setSelectedLanguage] = useState('en');
+    // Custom hooks
+    const [selectedLanguage, setSelectedLanguage] = useState<Language>(getItem('language') as Language || 'en');
     const [modalVisible, setModalVisible] = useState(false);
 
-    const changeLanguage = (lng: string) => {
+    useEffect(() => {
+        const storedLanguage = getItem('language') as Language;
+        if (storedLanguage) {
+            setSelectedLanguage(storedLanguage);
+            i18n.changeLanguage(storedLanguage);
+        }
+    }, []);
+
+
+    const changeLanguage = (lng: Language) => {
+
         setSelectedLanguage(lng);
+        setItem('language', lng);
         i18n.changeLanguage(lng);
         setModalVisible(false);
+
         const language = lng === 'en' ? 'English' : 'Dutch';
+
+        // Display in changed language custom message, really nice for UI and UX experience!
         Alert.alert(
-            "Language Changed",
-            `The language has been changed to ${language}. Please restart the app for the changes to take effect.`,
-            [
-                {
-                    text: "Restart Now",
-                    onPress: () => {
-                        Updates.reloadAsync();
-                    },
-                },
-                { text: "Later" },
-            ]
+            t('Language-Message.language-changed'),
+            t('Language-Message.language-changed-description')
         );
+
     };
 
     return (
@@ -48,7 +56,7 @@ export default function AuthIndex() {
                         style={styles.flag}
                     />
                     <Text style={styles.languageText}>
-                        {selectedLanguage === 'en' ? 'English' : 'Dutch'} 🌐
+                        Choose Language 🌐
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -71,17 +79,17 @@ export default function AuthIndex() {
                 </View>
             </Modal>
             <View style={styles.content}>
-                <Text style={styles.title}>{t('home-title')}</Text>
-                <Text style={styles.subtitle}>{t('home-subtitle')}</Text>
+                <Text style={styles.title}>{t('Onboarding.home-title')}</Text>
+                <Text style={styles.subtitle}>{t('Onboarding.home-subtitle')}</Text>
                 <View style={styles.card}>
-                    <Text style={styles.cardHeader}>{t('home-login-text')}</Text>
-                    <Text style={styles.cardDescription}>{t('home-login-description-text')}</Text>
+                    <Text style={styles.cardHeader}>{t('Auth.home-login-text')}</Text>
+                    <Text style={styles.cardDescription}>{t('Auth.home-login-description-text')}</Text>
                     <Button title={t('home-login-text')} color="#FF7043" onPress={() => router.navigate('/sign-in')} />
                 </View>
                 <View style={styles.card}>
-                    <Text style={styles.cardHeader}>{t('home-register-text')}</Text>
-                    <Text style={styles.cardDescription}>{t('home-register-description-text')}</Text>
-                    <Button title={t('home-register-text')} color="#FF7043" onPress={() => router.navigate('/sign-up')} />
+                    <Text style={styles.cardHeader}>{t('Auth.home-register-text')}</Text>
+                    <Text style={styles.cardDescription}>{t('Auth.home-register-description-text')}</Text>
+                    <Button title={t('Auth.home-register-text')} color="#FF7043" onPress={() => router.navigate('/sign-up')} />
                 </View>
             </View>
         </SafeAreaView>
@@ -96,7 +104,6 @@ const styles = StyleSheet.create({
     header: {
         paddingTop: Platform.OS === 'ios' ? 60 : 40,
         paddingBottom: 20,
-        paddingHorizontal: 20,
         alignItems: 'flex-end',
         justifyContent: 'center',
     },

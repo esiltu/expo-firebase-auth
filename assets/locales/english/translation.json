@@ -1,8 +1,16 @@
 {
-    "home-title": "Expo Firebase Auth",
-    "home-subtitle": "with TypeScript and Expo Router",
-    "home-login-text": "Login",
-    "home-login-description-text": "Welcome! Log in to access our services.",
-    "home-register-text": "Register",
-    "home-register-description-text": "Don't have an account? Sign up now!"
+    "Onboarding": {
+        "home-title": "Expo Firebase Auth",
+        "home-subtitle": "with TypeScript and Expo Router"
+    },
+    "Auth": {
+        "home-login-text": "Login",
+        "home-login-description-text": "Welcome! Log in to access our services.",
+        "home-register-text": "Register",
+        "home-register-description-text": "Don't have an account? Sign up now!"
+    },
+    "Language-Message": {
+        "language-changed": "Language Changed",
+        "language-changed-description": "The language has been changed to English"
+    }
 }
