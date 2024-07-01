@@ -5,7 +5,7 @@ import { auth } from 'utils/firebase';
 import { signInWithEmailAndPassword, } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
-import { router, useGlobalSearchParams } from 'expo-router';
+import { router } from 'expo-router';
 import Toast from 'react-native-toast-message';
 
 
