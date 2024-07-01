@@ -84,7 +84,7 @@ export default function AuthIndex() {
                 <View style={styles.card}>
                     <Text style={styles.cardHeader}>{t('Auth.home-login-text')}</Text>
                     <Text style={styles.cardDescription}>{t('Auth.home-login-description-text')}</Text>
-                    <Button title={t('home-login-text')} color="#FF7043" onPress={() => router.navigate('/sign-in')} />
+                    <Button title={t('Auth.home-login-text')} color="#FF7043" onPress={() => router.navigate('/sign-in')} />
                 </View>
                 <View style={styles.card}>
                     <Text style={styles.cardHeader}>{t('Auth.home-register-text')}</Text>
