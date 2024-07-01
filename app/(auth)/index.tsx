@@ -37,8 +37,8 @@ export default function AuthIndex() {
 
         // Display in changed language custom message, really nice for UI and UX experience!
         Alert.alert(
-            t('language-changed'),
-            t('language-changed-description')
+            t('Language-Message.language-changed'),
+            t('Language-Message.language-changed-description')
         );
 
     };
@@ -79,17 +79,17 @@ export default function AuthIndex() {
                 </View>
             </Modal>
             <View style={styles.content}>
-                <Text style={styles.title}>{t('home-title')}</Text>
-                <Text style={styles.subtitle}>{t('home-subtitle')}</Text>
+                <Text style={styles.title}>{t('Onboarding.home-title')}</Text>
+                <Text style={styles.subtitle}>{t('Onboarding.home-subtitle')}</Text>
                 <View style={styles.card}>
-                    <Text style={styles.cardHeader}>{t('home-login-text')}</Text>
-                    <Text style={styles.cardDescription}>{t('home-login-description-text')}</Text>
+                    <Text style={styles.cardHeader}>{t('Auth.home-login-text')}</Text>
+                    <Text style={styles.cardDescription}>{t('Auth.home-login-description-text')}</Text>
                     <Button title={t('home-login-text')} color="#FF7043" onPress={() => router.navigate('/sign-in')} />
                 </View>
                 <View style={styles.card}>
-                    <Text style={styles.cardHeader}>{t('home-register-text')}</Text>
-                    <Text style={styles.cardDescription}>{t('home-register-description-text')}</Text>
-                    <Button title={t('home-register-text')} color="#FF7043" onPress={() => router.navigate('/sign-up')} />
+                    <Text style={styles.cardHeader}>{t('Auth.home-register-text')}</Text>
+                    <Text style={styles.cardDescription}>{t('Auth.home-register-description-text')}</Text>
+                    <Button title={t('Auth.home-register-text')} color="#FF7043" onPress={() => router.navigate('/sign-up')} />
                 </View>
             </View>
         </SafeAreaView>
