@@ -3,28 +3,28 @@
 Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3, Gluestack-UI, and Firebase for authentication.
 
 <p align="center">
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://img.shields.io/badge/Made_with-React_native-blue" alt="Build Status">
   </a>
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Build Status">
   </a>
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://img.shields.io/badge/License-Boost_1.0-lightblue.svg" alt="Codecov" />
   </a>
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://img.shields.io/badge/License-ISC-blue.svg" alt="License">
   </a>
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://badgen.net/github/release/Naereen/Strapdown.js" alt="Release">
   </a>
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="https://img.shields.io/badge/Runs%20with%20Expo-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000" alt="Runs with Expo">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
+  <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
     <img src="http://forthebadge.com/images/badges/built-with-love.svg" alt="Built with Love"/>
   </a>
 </p>
