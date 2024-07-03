@@ -1,3 +1,7 @@
+# 🚀 Expo - Firebase - Kit
+
+Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3, Gluestack-UI, and Firebase for authentication.
+
 <p align="center">
   <a href="https://github.com/rit3zh/react-native-ios-swipe-actions" target="_blank">
     <img src="https://img.shields.io/badge/Made_with-React_native-blue" alt="Build Status">
@@ -25,9 +29,6 @@
   </a>
 </p>
 
-# 🚀 Expo - Firebase - Kit
-
-Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3, Gluestack-UI, and Firebase for authentication.
 
 ## Maintainer
 
