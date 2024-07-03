@@ -56,7 +56,7 @@ export default function AuthIndex() {
                         style={styles.flag}
                     />
                     <Text style={styles.languageText}>
-                        Choose Language 🌐
+                        {t("Choose-Language.change-language")}
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 2,
         elevation: 2,
+        right: 10,
     },
     flag: {
         width: 24,
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.5)',
     },
     modalContainer: {
-        width: 250,
+        width: 150,
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
         padding: 20,
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
     modalText: {
         fontSize: 18,
         color: '#000',
+        textAlign: 'center',
     },
     title: {
         fontSize: 28,

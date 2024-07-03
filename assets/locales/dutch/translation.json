@@ -13,6 +13,9 @@
         "language-changed": "Taal veranderd",
         "language-changed-description": "Taal is veranderd naar Nederlands"
     },
+    "Choose-Language": {
+        "change-language": "Verander taal"
+    },
     "SignIn-Success": {
         "login-success": "Succesvol ingelogd!",
         "login-success-second": "Veel plezier! 👋"
