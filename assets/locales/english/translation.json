@@ -12,5 +12,9 @@
     "Language-Message": {
         "language-changed": "Language Changed",
         "language-changed-description": "The language has been changed to English"
+    },
+    "SignIn-Success": {
+        "login-success": "Login Successful",
+        "login-success-second": "You have successfully logged in."
     }
 }
