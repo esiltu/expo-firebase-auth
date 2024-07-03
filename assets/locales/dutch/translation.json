@@ -12,5 +12,9 @@
     "Language-Message": {
         "language-changed": "Taal veranderd",
         "language-changed-description": "Taal is veranderd naar Nederlands"
+    },
+    "SignIn-Success": {
+        "login-success": "Succesvol ingelogd!",
+        "login-success-second": "Veel plezier! 👋"
     }
 }

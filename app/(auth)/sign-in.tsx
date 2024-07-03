@@ -7,6 +7,7 @@ import AuthFlowSchema from 'utils/AuthFlowSchema';
 import { setItem } from '~/store/storage';
 import { router } from 'expo-router';
 import Toast from 'react-native-toast-message';
+import i18n from '~/hooks/useTranslation';
 
 
 interface AuthFlowState {
@@ -15,6 +16,8 @@ interface AuthFlowState {
 }
 
 const AuthSignIn = () => {
+
+    const { t } = i18n;
 
     const handleSignUp = async (values: AuthFlowState, resetForm: any) => {
         try {
@@ -25,8 +28,8 @@ const AuthSignIn = () => {
 
             Toast.show({
                 type: 'success',
-                text1: 'Login Successful',
-                text2: 'You have successfully logged in.',
+                text1: `${t('SignIn-Success.login-success')}`,
+                text2: `${t('SignIn-Success.login-success-second')}`,
                 position: 'top',
             });
 
