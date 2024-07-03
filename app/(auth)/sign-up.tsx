@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import AuthFlowSchema from 'utils/AuthFlowSchema'
 import { router } from 'expo-router';
 import Toast from 'react-native-toast-message';
+import i18n from '~/hooks/useTranslation';
 
 
 interface AuthFlowState {
@@ -15,8 +16,11 @@ interface AuthFlowState {
 
 const AuthSignUp = () => {
 
+    const { t } = i18n;
+
     const handleSignUp = async (values: AuthFlowState, resetForm: any) => {
         try {
+
             const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed up successfully:', userCredential.user);
 
@@ -24,22 +28,23 @@ const AuthSignUp = () => {
 
             Toast.show({
                 type: 'success',
-                text1: 'Registration Successful',
-                text2: 'You have successfully registered.',
+                text1: `${t('SignUp-Success.register-success')}`,
+                text2: `${t('SignUp-Success.register-success-second')}`,
                 position: 'top',
             });
 
             resetForm();
 
         } catch (error) {
-            console.error('Error signing up:', error);
 
             Toast.show({
                 type: 'error',
-                text1: 'Registration Failed',
-                text2: 'An error occurred. Please try again.',
+                text1: `${t('SignUp-Failed.register-registration-failed')}`,
+                text2: `${t('SignUp-Failed.register-registration-failed-second')}`,
                 position: 'top',
             });
+
+            console.error('Error signing up:', error);
         }
     };
 

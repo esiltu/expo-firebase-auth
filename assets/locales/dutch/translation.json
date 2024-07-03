@@ -19,5 +19,23 @@
     "SignIn-Success": {
         "login-success": "Succesvol ingelogd!",
         "login-success-second": "Veel plezier! 👋"
+    },
+    "SignIn-Failed": {
+        "login-failed": "Login Mislukt",
+        "login-failed-second": "Er is een fout opgetreden. Probeer het opnieuw."
+    },
+    "SignUp-Success": {
+        "registration-success": "Registratie Succesvol",
+        "registration-success-second": "Je bent succesvol geregistreerd."
+    },
+    "SignUp-Failed": {
+        "registration-failed": "Registratie Mislukt",
+        "registration-failed-second": "Er is een fout opgetreden. Probeer het opnieuw."
+    },
+    "SignIn-Form": {
+        "form-title": "Log nu in",
+        "form-input-email": "Voer e-mailadres in",
+        "form-input-password": "Voer wachtwoord in",
+        "form-button-title": "Inloggen"
     }
 }

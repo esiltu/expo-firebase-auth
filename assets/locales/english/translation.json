@@ -18,6 +18,24 @@
     },
     "SignIn-Success": {
         "login-success": "Login Successful",
-        "login-success-second": "You have successfully logged in."
+        "login-success-second": "Enjoy it! 👋"
+    },
+    "SignIn-Failed": {
+        "login-failed": "Login Failed",
+        "login-failed-second": "An error occurred. Please try again."
+    },
+    "SignUp-Success": {
+        "registration-success": "Registration Successful",
+        "registration-success-second": "You have successfully registered."
+    },
+    "SignUp-Failed": {
+        "registration-failed": "Registration Failed",
+        "registration-failed-second": "An error occurred. Please try again."
+    },
+    "SignIn-Form": {
+        "form-title": "Log in now",
+        "form-input-email": "Enter email address",
+        "form-input-password": "Enter password",
+        "form-button-title": "Login"
     }
 }
