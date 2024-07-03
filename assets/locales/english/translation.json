@@ -13,6 +13,9 @@
         "language-changed": "Language Changed",
         "language-changed-description": "The language has been changed to English"
     },
+    "Choose-Language": {
+        "change-language": "Change language"
+    },
     "SignIn-Success": {
         "login-success": "Login Successful",
         "login-success-second": "You have successfully logged in."
