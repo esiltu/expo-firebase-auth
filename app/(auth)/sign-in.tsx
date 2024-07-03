@@ -21,6 +21,7 @@ const AuthSignIn = () => {
 
     const handleSignUp = async (values: AuthFlowState, resetForm: any) => {
         try {
+
             const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
             console.log('User signed in successfully:', userCredential.user);
 
@@ -38,14 +39,16 @@ const AuthSignIn = () => {
             resetForm();
 
         } catch (error) {
-            console.error('Error signing in:', error);
 
             Toast.show({
                 type: 'error',
-                text1: 'Login Failed',
-                text2: 'An error occurred. Please try again.',
+                text1: `${t('SignIn-Failed.login-failed')}`,
+                text2: `${t('SignIn-Failed.login-failed-second')}`,
                 position: 'top',
             });
+
+            console.log("Something went wrong?", error)
+
         }
     };
 
@@ -78,7 +81,7 @@ const AuthSignIn = () => {
                 style={styles.container}
             >
                 <View style={styles.innerContainer}>
-                    <Text style={styles.header}>Sign In</Text>
+                    <Text style={styles.header}>{t('SignIn-Form.form-title')}</Text>
                     <Formik
                         initialValues={{ email: '', password: '' }}
                         validationSchema={AuthFlowSchema}
@@ -88,7 +91,7 @@ const AuthSignIn = () => {
                             <View>
                                 <TextInput
                                     style={styles.input}
-                                    placeholder="Email"
+                                    placeholder={t('SignIn-Form.form-input-email')}
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
                                     value={values.email}
@@ -99,7 +102,7 @@ const AuthSignIn = () => {
                                 {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
                                 <TextInput
                                     style={styles.input}
-                                    placeholder="Password"
+                                    placeholder={t('SignIn-Form.form-input-password')}
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     value={values.password}
@@ -108,7 +111,7 @@ const AuthSignIn = () => {
                                     placeholderTextColor="#aaa"
                                 />
                                 {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-                                <Button onPress={handleSubmit as any} title='Sign In' />
+                                <Button onPress={handleSubmit as any} title={t('SignIn-Form.form-button-title')} />
                                 <Button onPress={goToSignUpPageBtn as any} title='Geen account? Registreer nu nog!' />
                             </View>
                         )}
