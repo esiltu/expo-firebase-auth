@@ -1,6 +1,6 @@
 # 🚀 Expo - Firebase - Kit
 
-Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3, Gluestack-UI, and Firebase for authentication.
+Welcome to the **Expo - Firebase - Kit** repository! This project is a starter kit built with React Native Expo, designed to get you up and running with Expo Router v3 and Firebase for authentication.
 
 <p align="center">
   <a href="https://github.com/esiltu/expo-firebase-auth" target="_blank">
