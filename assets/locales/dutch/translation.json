@@ -25,6 +25,7 @@
         "login-failed-second": "Er is een fout opgetreden. Probeer het opnieuw."
     },
     "SignUp-Success": {
+        "btn-text": "Reigstreer",
         "registration-success": "Registratie Succesvol",
         "registration-success-second": "Je bent succesvol geregistreerd."
     },
@@ -37,5 +38,10 @@
         "form-input-email": "Voer e-mailadres in",
         "form-input-password": "Voer wachtwoord in",
         "form-button-title": "Inloggen"
+    },
+    "Form-Validation": {
+        "email-invalid": "E-mailadres klopt niet",
+        "password-invalid": "Wachtwoord is te kort",
+        "required": "Vereist"
     }
 }

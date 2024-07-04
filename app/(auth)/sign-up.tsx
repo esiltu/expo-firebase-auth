@@ -59,7 +59,7 @@ const AuthSignUp = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Sign Up</Text>
+            <Text style={styles.header}>{t("SignIn-Form.form-title")}</Text>
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={AuthFlowSchema}
@@ -69,7 +69,7 @@ const AuthSignUp = () => {
                     <View>
                         <TextInput
                             style={styles.input}
-                            placeholder="Email"
+                            placeholder={t('SignIn-Form.form-input-email')}
                             onChangeText={handleChange('email')}
                             onBlur={handleBlur('email')}
                             value={values.email}
@@ -79,7 +79,7 @@ const AuthSignUp = () => {
                         {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
                         <TextInput
                             style={styles.input}
-                            placeholder="Password"
+                            placeholder={t('SignIn-Form.form-input-password')}
                             onChangeText={handleChange('password')}
                             onBlur={handleBlur('password')}
                             value={values.password}
@@ -87,7 +87,7 @@ const AuthSignUp = () => {
                             autoCapitalize="none"
                         />
                         {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-                        <Button title="Sign Up" onPress={handleSubmit as any} />
+                        <Button title={t('SignUp-Success.btn-text')} onPress={handleSubmit as any} />
                         <Button title="Heb je al een account? Log in" onPress={goToSignInPageBtn as any} />
                     </View>
                 )}
