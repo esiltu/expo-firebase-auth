@@ -53,7 +53,6 @@ Currently under maintenance, so updates will follow!
 - [📥 Installation](#-installation)
 - [📈 Usage](#-usage)
 - [📄 Project Structure](#-project-structure)
-- [🤝 Contributing](#-contributing)
 
 ## 🛠 Tech Stack
 
