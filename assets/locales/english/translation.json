@@ -25,6 +25,7 @@
         "login-failed-second": "An error occurred. Please try again."
     },
     "SignUp-Success": {
+        "btn-text": "Register",
         "registration-success": "Registration Successful",
         "registration-success-second": "You have successfully registered."
     },
@@ -37,5 +38,10 @@
         "form-input-email": "Enter email address",
         "form-input-password": "Enter password",
         "form-button-title": "Login"
+    },
+    "Form-Validation": {
+        "email-invalid": "Email address is incorrect",
+        "password-invalid": "Password is too short",
+        "required": "Required"
     }
 }
